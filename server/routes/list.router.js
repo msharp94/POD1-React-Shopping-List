@@ -4,6 +4,22 @@ const pool = require('../modules/pool.js');
 
 // TODO - Add routes here...
 
+
+// PUT reset
+
+router.put('/reset', (req, res) => {
+  let queryText = `UPDATE "list" SET "purchase_status"=false RETURNING *`;
+  pool.query(queryText)
+  .then(result => {
+    res.send(result.rows);
+  })
+  .catch((err) => {
+    console.log(`Error making query: ${queryText}`, err);
+    
+  })
+
+})
+
 router.delete('/:id', (req, res) => {
     console.log(req.params);
     const resetId = req.params.id;
@@ -50,7 +66,7 @@ router.get('/', (req, res) => {
 router.put('/:listid', (req, res) => {
     let listid = req.params.listid;
 
-    let queryText = 'UPDATE "tasks" SET "purchase_status"=true WHERE id=$1 RETURNING *;';
+    let queryText = 'UPDATE "list" SET "purchase_status"=true WHERE id=$1 RETURNING *;';
 
     pool.query(queryText, [listid]).then( (response) => {
         res.send(result.rows);
@@ -59,6 +75,7 @@ router.put('/:listid', (req, res) => {
         res.sendStatus(500);
     })
 })
+
 
 
 module.exports = router;
