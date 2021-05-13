@@ -1,17 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Header from '../Header/Header.jsx'
+import Header from '../Header/Header.jsx';
 import './App.css';
 
 
 function App() {
-
-    let [shoppingList, setShoppingList] = useState([]);
+  
+      let [shoppingList, setShoppingList] = useState([]);
 
     //GET on load
     useEffect(() => {
         displayList();
-      }, [])
+      }, []);
+
+
+ 
+    function addNewItem(newItem) {
+      /*{create object in item form compnent} */
+
+      axios({
+        method: 'POST',
+        url: '/lists',
+        data: newItem /*{create object newItem in item form compnent} */
+      })
+        .then((response) => {
+          displayList();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  
+  function resetItems() {
+        axios({
+            method: 'PUT',
+            url: '/list/reset',
+        }).then((response) => {
+            displayList();
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+
 
     //GET
     const displayList = () => {
@@ -37,8 +68,6 @@ function App() {
             console.log(error);
         })
     }
-
-
 
     return (
         <div className="App">
