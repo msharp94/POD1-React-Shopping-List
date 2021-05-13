@@ -1,0 +1,11 @@
+Blaine recommends:
+
+App.js
+   ProductForm.jsx (with local state)
+   ProductList
+      ProductItem
+      ProductItem
+      ProductItem
+      ProductItem
+
+You could keep ProductItem inside ProductList if you like, but it'd be good practice to break it up.
