@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from '../Header/Header.jsx';
+import DeleteOrClear from '../DeleteClear/deleteClear.js'
 
 import './App.css';
 
@@ -12,7 +13,7 @@ function App() {
 
     axios({
         method: 'DELETE',
-        url: `/list/${listId}`
+        url: `/list/a/${listId}`
     })
     .then((response) => {
         displayList();
@@ -26,7 +27,7 @@ function deleteList() {
 
     axios({
         method: 'DELETE',
-        url: `/list`
+        url: `/list/deleteAll`
     })
     .then((response) => {
         displayList();
@@ -107,6 +108,7 @@ function deleteList() {
         <Header />
         <main>
           <p>🚧 Under Construction...🚧</p>
+          <DeleteOrClear resetItems={resetItems}  deleteList={deleteList}/>
         </main>
       </div>
     );

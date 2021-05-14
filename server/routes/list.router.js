@@ -46,7 +46,7 @@ router.put('/reset', (req, res) => {
 
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/a/:id', (req, res) => {
     console.log(req.params);
     const resetId = req.params.id;
 
@@ -60,7 +60,7 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-router.delete('/', (req, res) => {
+router.delete('/deleteAll', (req, res) => {
     console.log(req.params);
     const clearId = req.params.id;
 

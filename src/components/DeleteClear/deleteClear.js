@@ -1,7 +1,22 @@
-import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 
-function deleteOrClear({ clear, delete}) {
-    const [isClear, isDelete] = useState(true);
+function DeleteOrClear({ clear, ...props}) {
+    
+    return (
+        <>
+           <button onClick= {(event) => props.deleteList()}>Delete</button>
+            
+           <button onClick= {(event) => props.resetItems()}>Reset</button>
+        
+        
+        
+        </>
+
+
+    );
+
 
     
 }
+
+export default DeleteOrClear;
