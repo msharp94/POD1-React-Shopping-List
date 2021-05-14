@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ItemForm from '../ItemForm/ItemForm.jsx';
 import Header from '../Header/Header.jsx';
 
 import './App.css';
@@ -66,7 +67,8 @@ function deleteList() {
   function resetItems() {
         axios({
             method: 'PUT',
-            url: '/list/reset',
+            url: '/list',
+            data: listid
         }).then((response) => {
             displayList();
         }).catch((error) => {
@@ -101,15 +103,16 @@ function deleteList() {
         })
     }
 
+  return (
+    <div className='App'>
+      <Header />
+      <main>
+        <ItemForm />
+        <p>🚧 Under Construction...🚧</p>
+      </main>
+    </div>
+  );
 
-    return (
-      <div className='App'>
-        <Header />
-        <main>
-          <p>🚧 Under Construction...🚧</p>
-        </main>
-      </div>
-    );
 }
 
 export default App;
