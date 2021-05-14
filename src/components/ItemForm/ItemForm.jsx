@@ -27,10 +27,10 @@ function ItemForm(props) {
   }
 
   return (
-    <div class='input-form'>
+    <div className='input-form'>
       <h2>Add an Item</h2>
       <form onSubmit={onSubmit}>
-        <label for='item'>Item: </label>
+        <label htmlFor='item'>Item: </label>
         <input
           id='item'
           placeholder='item'
@@ -40,7 +40,7 @@ function ItemForm(props) {
         />
         <br />
 
-        <label for='quantity'>Quantity: </label>
+        <label htmlFor='quantity'>Quantity: </label>
         <input
           id='quantity'
           placeholder='quantity'
@@ -48,7 +48,7 @@ function ItemForm(props) {
           value={quantity}
           required
         />
-        <label for='unit'>Unit: </label>
+        <label htmlFor='unit'>Unit: </label>
         <input
           id='unit'
           placeholder='unit'
