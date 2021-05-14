@@ -1,6 +1,11 @@
+.input-form {
+    font-family: serif;
+}
+
 input {
     margin: 5px;
     padding: 2px;
+    border-radius: 5px;
 }
 
 .line-one {

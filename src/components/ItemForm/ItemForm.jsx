@@ -60,7 +60,7 @@ function ItemForm(props) {
           />
         </div>
         <br />
-        <button className='add-item' >Add item</button>
+        <button className='add-item'>Add item</button>
       </form>
     </div>
   );
