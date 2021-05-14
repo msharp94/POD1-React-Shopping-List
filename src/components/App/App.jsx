@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ItemForm from '../ItemForm/ItemForm.jsx';
 import Header from '../Header/Header.jsx';
 import DeleteOrClear from '../DeleteClear/deleteClear.js'
 
 import './App.css';
+import DisplayShoppingList from '../DisplayShoppingList/DisplayShoppingList.jsx';
 
 
 function App() {
+  
+    let [shoppingList, setShoppingList] = useState([]);
+
+    //GET on load
+    useEffect(() => {
+        displayList();
+      }, []);
+
 
 
     function deleteItem(listId) {
@@ -38,15 +48,6 @@ function deleteList() {
 }
 
 
-  
-      let [shoppingList, setShoppingList] = useState([]);
-
-    //GET on load
-    useEffect(() => {
-        displayList();
-      }, []);
-
-
  
     function addNewItem(newItem) {
       /*{create object in item form compnent} */
@@ -67,7 +68,8 @@ function deleteList() {
   function resetItems() {
         axios({
             method: 'PUT',
-            url: '/list/reset',
+            url: '/list',
+            data: listid
         }).then((response) => {
             displayList();
         }).catch((error) => {
@@ -102,15 +104,18 @@ function deleteList() {
         })
     }
 
-
     return (
-      <div className='App'>
-        <Header />
-        <main>
-          <p>🚧 Under Construction...🚧</p>
-          <DeleteOrClear resetItems={resetItems}  deleteList={deleteList}/>
-        </main>
-      </div>
+
+        <div className="App">
+            <Header />
+            <main>
+                <ItemForm />
+                <p>🚧 Under Construction...🚧</p>
+                <DeleteOrClear resetItems={resetItems}  deleteList={deleteList}/>
+                <DisplayShoppingList shoppingList={shoppingList} purchaseItem={purchaseItem} deleteItem={deleteItem} />
+            </main>
+        </div>
+
     );
 }
 

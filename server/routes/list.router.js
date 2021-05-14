@@ -79,8 +79,10 @@ router.delete('/deleteAll', (req, res) => {
 router.get('/', (req, res) => {
     const queryText = 'SELECT * FROM "list";';
 
-    pool.query(queryText).then( (response) => {
-        res.send(response.rows);
+
+    pool.query(queryText).then( (result) => {
+        res.send(result.rows);
+
     }).catch( (error) => {
         console.log(`Error making query ${queryText}`, error);
         res.sendStatus(500);
@@ -94,7 +96,7 @@ router.put('/:listid', (req, res) => {
 
     let queryText = 'UPDATE "list" SET "purchase_status"=true WHERE id=$1 RETURNING *;';
 
-    pool.query(queryText, [listid]).then( (response) => {
+    pool.query(queryText, [listid]).then( (result) => {
         res.send(result.rows);
     }).catch( (error) => {
         console.log(`Error making query ${queryText}`, error);

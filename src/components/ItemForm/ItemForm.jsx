@@ -56,6 +56,8 @@ function ItemForm(props) {
           value={unit}
           onChange={(event) => setUnit(event.target.value)}
         />
+        <br />
+        <button>Add item</button>
       </form>
     </div>
   );
