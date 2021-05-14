@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 function ItemForm(props) {
-  console.log(`ItemForm Props are: `, props);
 
   const [itemName, setItemName] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -17,7 +16,7 @@ function ItemForm(props) {
       unit: unit
     };
 
-    props.addItem(newItem);
+    props.addNewItem(newItem);
 
     console.log(newItem);
 

@@ -48,13 +48,15 @@ function deleteList() {
 }
 
 
- 
+
+
+    // ADD ITEM
     function addNewItem(newItem) {
       /*{create object in item form compnent} */
 
       axios({
         method: 'POST',
-        url: '/lists',
+        url: '/list',
         data: newItem /*{create object newItem in item form compnent} */
       })
         .then((response) => {
@@ -104,13 +106,13 @@ function deleteList() {
         })
     }
 
+
     return (
 
         <div className="App">
             <Header />
             <main>
-                <ItemForm />
-                <p>🚧 Under Construction...🚧</p>
+                <ItemForm addNewItem={addNewItem}/>
                 <DeleteOrClear resetItems={resetItems}  deleteList={deleteList}/>
                 <DisplayShoppingList shoppingList={shoppingList} purchaseItem={purchaseItem} deleteItem={deleteItem} />
             </main>
