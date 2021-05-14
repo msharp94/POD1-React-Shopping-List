@@ -108,7 +108,7 @@ function deleteList() {
             <Header />
             <main>
                 <p>🚧 Under Construction...🚧</p>
-                <DisplayShoppingList />
+                <DisplayShoppingList shoppingList={shoppingList} purchaseItem={purchaseItem} deleteItem={deleteItem} />
             </main>
         </div>
     );
