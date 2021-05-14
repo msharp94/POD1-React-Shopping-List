@@ -107,7 +107,7 @@ function deleteList() {
         <div className="App">
             <Header />
             <main>
-                <p>Under Construction...</p>
+                <p>🚧 Under Construction...🚧</p>
                 <DisplayShoppingList />
             </main>
         </div>
