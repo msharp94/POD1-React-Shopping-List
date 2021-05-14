@@ -47,13 +47,13 @@ function deleteList() {
       }, []);
 
 
- 
+    // ADD ITEM
     function addNewItem(newItem) {
       /*{create object in item form compnent} */
 
       axios({
         method: 'POST',
-        url: '/lists',
+        url: '/list',
         data: newItem /*{create object newItem in item form compnent} */
       })
         .then((response) => {
@@ -107,7 +107,7 @@ function deleteList() {
     <div className='App'>
       <Header />
       <main>
-        <ItemForm />
+        <ItemForm addNewItem={addNewItem}/>
         <p>🚧 Under Construction...🚧</p>
       </main>
     </div>
