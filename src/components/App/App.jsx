@@ -1,10 +1,9 @@
-import { response } from 'express';
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from '../Header/Header.jsx';
 
 import './App.css';
+import DisplayShoppingList from '../DisplayShoppingList/DisplayShoppingList.jsx';
 
 
 function App() {
@@ -109,6 +108,7 @@ function deleteList() {
             <Header />
             <main>
                 <p>Under Construction...</p>
+                <DisplayShoppingList />
             </main>
         </div>
     );
