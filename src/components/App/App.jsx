@@ -4,9 +4,18 @@ import ItemForm from '../ItemForm/ItemForm.jsx';
 import Header from '../Header/Header.jsx';
 
 import './App.css';
+import DisplayShoppingList from '../DisplayShoppingList/DisplayShoppingList.jsx';
 
 
 function App() {
+  
+    let [shoppingList, setShoppingList] = useState([]);
+
+    //GET on load
+    useEffect(() => {
+        displayList();
+      }, []);
+
 
 
     function deleteItem(listId) {
@@ -36,15 +45,6 @@ function deleteList() {
         console.log(error);
     });
 }
-
-
-  
-      let [shoppingList, setShoppingList] = useState([]);
-
-    //GET on load
-    useEffect(() => {
-        displayList();
-      }, []);
 
 
  
@@ -103,16 +103,16 @@ function deleteList() {
         })
     }
 
-  return (
-    <div className='App'>
-      <Header />
-      <main>
-        <ItemForm />
-        <p>🚧 Under Construction...🚧</p>
-      </main>
-    </div>
-  );
-
+    return (
+        <div className="App">
+            <Header />
+            <main>
+                <ItemForm />
+                <p>🚧 Under Construction...🚧</p>
+                <DisplayShoppingList shoppingList={shoppingList} purchaseItem={purchaseItem} deleteItem={deleteItem} />
+            </main>
+        </div>
+    );
 }
 
 export default App;
