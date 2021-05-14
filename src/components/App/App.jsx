@@ -2,18 +2,28 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ItemForm from '../ItemForm/ItemForm.jsx';
 import Header from '../Header/Header.jsx';
+import DeleteOrClear from '../DeleteClear/deleteClear.js'
 
 import './App.css';
+import DisplayShoppingList from '../DisplayShoppingList/DisplayShoppingList.jsx';
 
 
 function App() {
+  
+    let [shoppingList, setShoppingList] = useState([]);
+
+    //GET on load
+    useEffect(() => {
+        displayList();
+      }, []);
+
 
 
     function deleteItem(listId) {
 
     axios({
         method: 'DELETE',
-        url: `/list/${listId}`
+        url: `/list/a/${listId}`
     })
     .then((response) => {
         displayList();
@@ -27,7 +37,7 @@ function deleteList() {
 
     axios({
         method: 'DELETE',
-        url: `/list`
+        url: `/list/deleteAll`
     })
     .then((response) => {
         displayList();
@@ -38,13 +48,6 @@ function deleteList() {
 }
 
 
-  
-      let [shoppingList, setShoppingList] = useState([]);
-
-    //GET on load
-    useEffect(() => {
-        displayList();
-      }, []);
 
 
     // ADD ITEM
@@ -103,16 +106,19 @@ function deleteList() {
         })
     }
 
-  return (
-    <div className='App'>
-      <Header />
-      <main>
-        <ItemForm addNewItem={addNewItem}/>
-        <p>🚧 Under Construction...🚧</p>
-      </main>
-    </div>
-  );
 
+    return (
+
+        <div className="App">
+            <Header />
+            <main>
+                <ItemForm addNewItem={addNewItem}/>
+                <DeleteOrClear resetItems={resetItems}  deleteList={deleteList}/>
+                <DisplayShoppingList shoppingList={shoppingList} purchaseItem={purchaseItem} deleteItem={deleteItem} />
+            </main>
+        </div>
+
+    );
 }
 
 export default App;
