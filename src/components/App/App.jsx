@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react';
 import axios from 'axios';
-
+import ItemForm from '../ItemForm/ItemForm.jsx';
 import Header from '../Header/Header.jsx';
 import './App.css';
 
@@ -34,9 +34,11 @@ function App() {
         axios({
             method: 'PUT',
             url: '/list',
-            data: /*?*/
+            data: listid
         }).then((response) => {
-            if 
+            displayList();
+        }).catch((error) => {
+            console.log(error);
         })
     }
 
@@ -45,6 +47,7 @@ function App() {
     <div className='App'>
       <Header />
       <main>
+        <ItemForm />
         <p>Under Construction...</p>
       </main>
     </div>
