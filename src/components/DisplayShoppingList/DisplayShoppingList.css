@@ -1,0 +1,32 @@
+.displayBox {
+    text-align: center;
+    width: 20%;
+    height: 10%;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: lightblue;
+}
+
+button {
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.delete {
+    color: white;
+    background-color: red;
+}
+
+.purchase {
+    color: white;
+    background-color: green;
+}
+
+.purchased {
+    font-weight: bold;
+    color: green;
+}

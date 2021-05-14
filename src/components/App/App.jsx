@@ -112,7 +112,9 @@ function deleteList() {
             <Header />
             <main>
                 <ItemForm addNewItem={addNewItem}/>
+                <br/>
                 <DeleteOrClear resetItems={resetItems}  deleteList={deleteList}/>
+                <br />
                 <DisplayShoppingList shoppingList={shoppingList} purchaseItem={purchaseItem} deleteItem={deleteItem} />
             </main>
         </div>

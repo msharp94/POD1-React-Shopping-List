@@ -1,0 +1,14 @@
+input {
+    margin: 5px;
+    padding: 2px;
+}
+
+.line-one {
+    width: 100%;
+}
+
+.add-item {
+    color: white;
+    background-color: green;
+}
+
