@@ -2,10 +2,42 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ItemForm from '../ItemForm/ItemForm.jsx';
 import Header from '../Header/Header.jsx';
+
 import './App.css';
 
 
 function App() {
+
+
+    function deleteItem(listId) {
+
+    axios({
+        method: 'DELETE',
+        url: `/list/${listId}`
+    })
+    .then((response) => {
+        displayList();
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+}
+
+function deleteList() {
+
+    axios({
+        method: 'DELETE',
+        url: `/list`
+    })
+    .then((response) => {
+        displayList();
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+}
+
+
   
       let [shoppingList, setShoppingList] = useState([]);
 
@@ -80,6 +112,7 @@ function App() {
       </main>
     </div>
   );
+
 }
 
 export default App;
