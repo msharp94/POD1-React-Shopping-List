@@ -80,7 +80,7 @@ router.get('/', (req, res) => {
     const queryText = 'SELECT * FROM "list";';
 
     pool.query(queryText).then( (response) => {
-        res.send(result.rows);
+        res.send(response.rows);
     }).catch( (error) => {
         console.log(`Error making query ${queryText}`, error);
         res.sendStatus(500);
