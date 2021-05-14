@@ -9,16 +9,15 @@ router.post('/', (req, res) => {
   
   const listItem = req.body;
   const queryText = `
-    INSERT INTO list ("name", "quantity", "unit", "purchase_status")
-    VALUES ($1, $2, $3, $4)`;
+    INSERT INTO list ("name", "quantity", "unit")
+    VALUES ($1, $2, $3)`;
 
 
   pool
     .query(queryText, [
       listItem.name,
       listItem.quantity,
-      listItem.unit,
-      listItem.purchase_status
+      listItem.unit
     ])
     .then(function () {
       console.log(`Added to the list`, listItem);

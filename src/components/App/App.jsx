@@ -70,8 +70,7 @@ function deleteList() {
   function resetItems() {
         axios({
             method: 'PUT',
-            url: '/list',
-            data: listid
+            url: '/list/reset',
         }).then((response) => {
             displayList();
         }).catch((error) => {
