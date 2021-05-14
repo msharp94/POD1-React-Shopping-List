@@ -76,7 +76,7 @@ router.delete('/deleteAll', (req, res) => {
 
 // GET Route
 router.get('/', (req, res) => {
-    const queryText = 'SELECT * FROM "list";';
+    const queryText = 'SELECT * FROM "list" ORDER by "id";';
 
 
     pool.query(queryText).then( (result) => {
