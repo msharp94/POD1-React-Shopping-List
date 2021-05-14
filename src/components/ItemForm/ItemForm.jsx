@@ -4,7 +4,7 @@ function ItemForm(props) {
 
   const [itemName, setItemName] = useState('');
   const [quantity, setQuantity] = useState('');
-  const [unit, setUnit] = useState(0);
+  const [unit, setUnit] = useState('');
 
   function onSubmit(event) {
     event.preventDefault();
