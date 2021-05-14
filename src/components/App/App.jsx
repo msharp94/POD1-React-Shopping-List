@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ItemForm from '../ItemForm/ItemForm.jsx';
 import Header from '../Header/Header.jsx';
+import DeleteOrClear from '../DeleteClear/deleteClear.js'
 
 import './App.css';
 import DisplayShoppingList from '../DisplayShoppingList/DisplayShoppingList.jsx';
@@ -22,7 +23,7 @@ function App() {
 
     axios({
         method: 'DELETE',
-        url: `/list/${listId}`
+        url: `/list/a/${listId}`
     })
     .then((response) => {
         displayList();
@@ -36,7 +37,7 @@ function deleteList() {
 
     axios({
         method: 'DELETE',
-        url: `/list`
+        url: `/list/deleteAll`
     })
     .then((response) => {
         displayList();
@@ -104,14 +105,17 @@ function deleteList() {
     }
 
     return (
+
         <div className="App">
             <Header />
             <main>
                 <ItemForm />
                 <p>🚧 Under Construction...🚧</p>
+                <DeleteOrClear resetItems={resetItems}  deleteList={deleteList}/>
                 <DisplayShoppingList shoppingList={shoppingList} purchaseItem={purchaseItem} deleteItem={deleteItem} />
             </main>
         </div>
+
     );
 }
 

@@ -46,7 +46,7 @@ router.put('/reset', (req, res) => {
 
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/a/:id', (req, res) => {
     console.log(req.params);
     const resetId = req.params.id;
 
@@ -60,7 +60,7 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-router.delete('/', (req, res) => {
+router.delete('/deleteAll', (req, res) => {
     console.log(req.params);
     const clearId = req.params.id;
 
@@ -79,8 +79,10 @@ router.delete('/', (req, res) => {
 router.get('/', (req, res) => {
     const queryText = 'SELECT * FROM "list";';
 
+
     pool.query(queryText).then( (result) => {
         res.send(result.rows);
+
     }).catch( (error) => {
         console.log(`Error making query ${queryText}`, error);
         res.sendStatus(500);
