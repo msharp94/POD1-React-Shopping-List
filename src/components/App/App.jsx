@@ -1,4 +1,3 @@
-import { response } from 'express';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from '../Header/Header.jsx';
@@ -104,12 +103,12 @@ function deleteList() {
 
 
     return (
-        <div className="App">
-            <Header />
-            <main>
-                <p>Under Construction...</p>
-            </main>
-        </div>
+      <div className='App'>
+        <Header />
+        <main>
+          <p>🚧 Under Construction...🚧</p>
+        </main>
+      </div>
     );
 }
 
